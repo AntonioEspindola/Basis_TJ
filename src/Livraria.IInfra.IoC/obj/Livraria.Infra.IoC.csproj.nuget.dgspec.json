@@ -1,0 +1,308 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.IInfra.IoC\\Livraria.Infra.IoC.csproj": {}
+  },
+  "projects": {
+    "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Application\\Livraria.Application.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Application\\Livraria.Application.csproj",
+        "projectName": "Livraria.Application",
+        "projectPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Application\\Livraria.Application.csproj",
+        "packagesPath": "C:\\Users\\Antônio Espindola\\.nuget\\packages\\",
+        "outputPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Application\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Antônio Espindola\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\Livraria.Domain.csproj": {
+                "projectPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\Livraria.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "MediatR": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\Livraria.Domain.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\Livraria.Domain.csproj",
+        "projectName": "Livraria.Domain",
+        "projectPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\Livraria.Domain.csproj",
+        "packagesPath": "C:\\Users\\Antônio Espindola\\.nuget\\packages\\",
+        "outputPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Antônio Espindola\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.IInfra.IoC\\Livraria.Infra.IoC.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.IInfra.IoC\\Livraria.Infra.IoC.csproj",
+        "projectName": "Livraria.Infra.IoC",
+        "projectPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.IInfra.IoC\\Livraria.Infra.IoC.csproj",
+        "packagesPath": "C:\\Users\\Antônio Espindola\\.nuget\\packages\\",
+        "outputPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.IInfra.IoC\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Antônio Espindola\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Application\\Livraria.Application.csproj": {
+                "projectPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Application\\Livraria.Application.csproj"
+              },
+              "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\Livraria.Domain.csproj": {
+                "projectPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\Livraria.Domain.csproj"
+              },
+              "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Infra.Data\\Livraria.Infra.Data.csproj": {
+                "projectPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Infra.Data\\Livraria.Infra.Data.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[11.0.0, )"
+            },
+            "MediatR.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[10.0.1, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Swashbuckle.AspNetCore.Swagger": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerGen": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            },
+            "Swashbuckle.AspNetCore.SwaggerUI": {
+              "target": "Package",
+              "version": "[6.3.1, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Infra.Data\\Livraria.Infra.Data.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Infra.Data\\Livraria.Infra.Data.csproj",
+        "projectName": "Livraria.Infra.Data",
+        "projectPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Infra.Data\\Livraria.Infra.Data.csproj",
+        "packagesPath": "C:\\Users\\Antônio Espindola\\.nuget\\packages\\",
+        "outputPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Infra.Data\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\Antônio Espindola\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net6.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net6.0": {
+            "targetAlias": "net6.0",
+            "projectReferences": {
+              "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\Livraria.Domain.csproj": {
+                "projectPath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Domain\\Livraria.Domain.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net6.0": {
+          "targetAlias": "net6.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Identity": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "None",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Sqlite": {
+              "target": "Package",
+              "version": "[6.0.5, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[6.0.5, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.201\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Erro";
+}
+
+<h1>Ocorreu um Erro</h1>
+
+@if (TempData["ErrorMessage"] != null)
+{
+    <div class="alert alert-danger" role="alert">
+        @TempData["ErrorMessage"]
+    </div>
+}
+
+<p>Por favor, tente novamente mais tarde ou entre em contato com o suporte se o problema persistir.</p>
+
+<div>
+    <a asp-action="Index" class="btn btn-info">Voltar ao Início</a>
+</div>

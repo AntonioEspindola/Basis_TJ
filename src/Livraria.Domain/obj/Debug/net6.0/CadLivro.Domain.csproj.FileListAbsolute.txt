@@ -1,0 +1,12 @@
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\bin\Debug\net6.0\CadLivro.Domain.deps.json
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\bin\Debug\net6.0\CadLivro.Domain.dll
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\bin\Debug\net6.0\CadLivro.Domain.pdb
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\obj\Debug\net6.0\CadLivro.Domain.csproj.AssemblyReference.cache
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\obj\Debug\net6.0\CadLivro.Domain.GeneratedMSBuildEditorConfig.editorconfig
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\obj\Debug\net6.0\CadLivro.Domain.AssemblyInfoInputs.cache
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\obj\Debug\net6.0\CadLivro.Domain.AssemblyInfo.cs
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\obj\Debug\net6.0\CadLivro.Domain.csproj.CoreCompileInputs.cache
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\obj\Debug\net6.0\CadLivro.Domain.dll
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\obj\Debug\net6.0\refint\CadLivro.Domain.dll
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\obj\Debug\net6.0\CadLivro.Domain.pdb
+D:\Treinamentos_TI\.NET\ProjetoTJ\CleanArchMvc_NET6\CleanArchMvc\CleanArchMvc.Domain\obj\Debug\net6.0\ref\CadLivro.Domain.dll

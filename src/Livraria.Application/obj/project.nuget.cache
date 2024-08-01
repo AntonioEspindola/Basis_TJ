@@ -1,0 +1,13 @@
+{
+  "version": 2,
+  "dgSpecHash": "nU05ubE9rzj0MGI3zl9wdz4BmgDTsJ5wuCxCyEpM1OL7ek7OWQv4o8BTSudBrnfk137y9kREfg6erHPlzWuyAw==",
+  "success": true,
+  "projectFilePath": "D:\\Treinamentos_TI\\.NET\\ProjetoTJ\\CleanArchMvc_NET6\\Projeto_TJ_CleanArchMvc\\src\\Livraria.Application\\Livraria.Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Antônio Espindola\\.nuget\\packages\\automapper\\11.0.0\\automapper.11.0.0.nupkg.sha512",
+    "C:\\Users\\Antônio Espindola\\.nuget\\packages\\mediatr\\10.0.1\\mediatr.10.0.1.nupkg.sha512",
+    "C:\\Users\\Antônio Espindola\\.nuget\\packages\\mediatr.contracts\\1.0.1\\mediatr.contracts.1.0.1.nupkg.sha512",
+    "C:\\Users\\Antônio Espindola\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}

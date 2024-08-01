@@ -1,0 +1,24 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<TargetFramework>net6.0</TargetFramework>
+		<ImplicitUsings>enable</ImplicitUsings>
+		<Nullable>enable</Nullable>
+	</PropertyGroup>
+
+	<ItemGroup>
+		<PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+		<PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="10.0.1" />
+		<PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.5" />
+		<PackageReference Include="Swashbuckle.AspNetCore.Swagger" Version="6.3.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.1" />
+		<PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="6.3.1" />
+	</ItemGroup>
+
+	<ItemGroup>
+		<ProjectReference Include="..\Livraria.Application\Livraria.Application.csproj" />
+		<ProjectReference Include="..\Livraria.Domain\Livraria.Domain.csproj" />
+		<ProjectReference Include="..\Livraria.Infra.Data\Livraria.Infra.Data.csproj" />
+	</ItemGroup>
+
+</Project>

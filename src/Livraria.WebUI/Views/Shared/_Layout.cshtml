@@ -1,0 +1,91 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Catalog</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <style>
+        .navbar {
+            background-color: #343a40; /* Cor de fundo escura */
+        }
+        .navbar-brand {
+            color: #ffffff; /* Cor do texto do logo */
+        }
+        .navbar-brand:hover {
+            color: #ffcc00; /* Cor do texto do logo ao passar o mouse */
+        }
+        .navbar-nav .nav-link {
+            color: #ffffff; /* Cor do texto dos links */
+            transition: color 0.2s;
+        }
+        .navbar-nav .nav-link:hover {
+            color: #ffcc00; /* Cor do texto dos links ao passar o mouse */
+        }
+        .navbar-nav .nav-link.active {
+            color: #ff5722; /* Cor do texto do link ativo */
+            font-weight: bold;
+        }
+        .navbar-toggler {
+            border-color: rgba(255, 255, 255, 0.1); /* Cor do ícone do toggler */
+        }
+        .navbar-toggler-icon {
+            background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 30 30' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba%28255, 255, 255, 0.5%29' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 7h22M4 15h22M4 23h22'/%3E%3C/svg%3E");
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container">
+                               <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Home" && ViewContext.RouteData.Values["action"].ToString() == "Index" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
+                        </li>
+                       
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Livros" ? "active" : "")" asp-area="" asp-controller="Livros" asp-action="Index">Livros</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Autores" ? "active" : "")" asp-area="" asp-controller="Autores" asp-action="Index">Autores</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Assuntos" ? "active" : "")" asp-area="" asp-controller="Assuntos" asp-action="Index">Assuntos</a>
+                        </li>
+                          <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Precos" ? "active" : "")" asp-area="" asp-controller="Precos" asp-action="Index">Preços</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Relatorio" ? "active" : "")" asp-area="" asp-controller="Relatorios" asp-action="Index">Relatorio</a>
+                        </li>
+                         <li class="nav-item">
+                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Home" && ViewContext.RouteData.Values["action"].ToString() == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+                        </li>
+                    </ul>
+                    <ul class="navbar-nav ms-auto">
+                        @await Html.PartialAsync("_LoginPartial")
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container mt-4">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="bg-light text-muted py-3 mt-4">
+        <div class="container text-center">
+            &copy; 2024 - Antonio Espindola - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
+        </div>
+    </footer>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>
+

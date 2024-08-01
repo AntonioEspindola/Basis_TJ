@@ -1,0 +1,31 @@
+﻿@model Livraria.Application.DTOs.LivroDTO
+
+@{
+    ViewData["Title"] = "Detalhes do Livro";
+}
+
+<div>
+    <h2>@ViewData["Title"]</h2>
+</div>
+<hr />
+<div>
+    <h3>Preços do Livro: @Model.Titulo</h3>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Código do Canal</th>
+                <th>Preço de Venda</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var preco in Model.LivroPrecoCanalVenda)
+            {
+                <tr>
+                    <td>@preco.CanalVenda_CodCanal</td>
+                    <td>@preco.PrecoVenda.ToString("C")</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+<a asp-action="Index" class="btn btn-secondary">Voltar</a>

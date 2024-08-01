@@ -1,0 +1,76 @@
+CREATE TABLE Livro (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Titulo TEXT NOT NULL,
+    Editora TEXT NOT NULL,
+    Edicao INTEGER NOT NULL,
+    AnoPublicacao INTEGER NOT NULL
+ );
+
+CREATE TABLE Autor (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Nome TEXT NOT NULL
+);
+
+-- Script para criação da tabela Assunto
+CREATE TABLE Assunto (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Descricao TEXT NOT NULL
+);
+
+-- Script para criação da tabela LivroAutores
+CREATE TABLE LivroAutores (
+    Livro_Codl INTEGER NOT NULL,
+    Autor_CodAu INTEGER NOT NULL,
+    PRIMARY KEY (Livro_Codl, Autor_CodAu),
+    FOREIGN KEY (Livro_Codl) REFERENCES Livro(Id),
+    FOREIGN KEY (Autor_CodAu) REFERENCES Autor(Id)
+);
+
+-- Script para criação da tabela LivroAssuntos
+CREATE TABLE LivroAssuntos (
+    Livro_Codl INTEGER NOT NULL,
+    Assunto_codAs INTEGER NOT NULL,
+    PRIMARY KEY (Livro_Codl, Assunto_codAs),
+    FOREIGN KEY (Livro_Codl) REFERENCES Livro(Id),
+    FOREIGN KEY (Assunto_codAs) REFERENCES Assunto(Id)
+);
+
+-- Criação da view para consulta das tabelas Livro, Autor e Assunto e seus relacionamentos
+CREATE VIEW vw_LivroAutorAssunto AS
+SELECT
+    l.Id AS LivroId,
+    l.Titulo,
+    l.Editora,
+    l.Edicao,
+    l.AnoPublicacao,
+    a.Id AS AutorId,
+    a.Nome AS AutorNome,
+    s.Id AS AssuntoId,
+    s.Descricao AS AssuntoDescricao
+FROM
+    Livro l
+LEFT JOIN
+    LivroAutores la ON l.Id = la.Livro_Codl
+LEFT JOIN
+    Autor a ON la.Autor_CodAu = a.Id
+LEFT JOIN
+    LivroAssuntos las ON l.Id = las.Livro_Codl
+LEFT JOIN
+    Assunto s ON las.Assunto_codAs = s.Id;
+
+ -- Script para criação da tabela CanalVenda
+ CREATE TABLE CanalVenda (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    NomeCanal	TEXT NOT NULL,
+);
+
+
+-- Script para criação da tabela LivroPrecoCanalVenda
+CREATE TABLE LivroPrecoCanalVenda (
+    Livro_Codl INTEGER NOT NULL,
+    CanalVenda_CodCanal INTEGER NOT NULL,
+    PrecoVenda decimal NOT NULL,
+    PRIMARY KEY (Livro_Codl, CanalVenda_CodCanal),
+    FOREIGN KEY (Livro_Codl) REFERENCES Livro(Id),
+    FOREIGN KEY (CanalVenda_CodCanal) REFERENCES CanalVenda(Id)
+);
