@@ -86,6 +86,7 @@ namespace Livraria.Infra.Data.Repositories
         {
             try
             {
+                
                 _context.Update(assunto);
                 await _context.SaveChangesAsync();
                 return assunto;

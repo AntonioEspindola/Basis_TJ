@@ -1,5 +1,6 @@
 ﻿using Livraria.Application.DTOs;
 using Livraria.Application.Interfaces;
+using Livraria.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Livraria.WebUI.Controllers
@@ -28,6 +29,10 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter a lista de assuntos.");
                 TempData["ErrorMessage"] = "Erro ao obter a lista de assuntos. Tente novamente mais tarde.";
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro ao obter a lista de assuntos. Por favor, tente novamente mais tarde."
+                };
                 return View("Error");
             }
         }
@@ -52,6 +57,11 @@ namespace Livraria.WebUI.Controllers
                 {
                     _logger.LogError(ex, "Erro ao criar um novo assunto.");
                     TempData["ErrorMessage"] = "Erro ao criar o assunto. Tente novamente mais tarde.";
+                    var errorModel = new ErrorViewModel
+                    {
+                        ErrorMessage = "Ocorreu um erro ao obter a lista de assuntos. Por favor, tente novamente mais tarde."
+                    };
+                    return View("Error");
                 }
             }
             return View(assunto);
@@ -74,6 +84,10 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter o assunto para edição com ID {Id}.", id);
                 TempData["ErrorMessage"] = "Erro ao obter o assunto para edição. Tente novamente mais tarde.";
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro ao obter o assunto para edição. Por favor, tente novamente mais tarde."
+                };
                 return View("Error");
             }
         }
@@ -92,6 +106,11 @@ namespace Livraria.WebUI.Controllers
                 {
                     _logger.LogError(ex, "Erro ao atualizar o assunto com ID {Id}.", assuntoDto.Id);
                     TempData["ErrorMessage"] = "Erro ao atualizar o assunto. Tente novamente mais tarde.";
+                    var errorModel = new ErrorViewModel
+                    {
+                        ErrorMessage = "Ocorreu um erro ao atualizar o assunto. Por favor, tente novamente mais tarde."
+                    };
+                    return View("Error");
                 }
             }
             return View(assuntoDto);
@@ -114,6 +133,10 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter o assunto para exclusão com ID {Id}.", id);
                 TempData["ErrorMessage"] = "Erro ao obter o assunto para exclusão. Tente novamente mais tarde.";
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Erro ao obter o assunto para exclusão. Por favor, tente novamente mais tarde."
+                };
                 return View("Error");
             }
         }
@@ -131,7 +154,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao excluir o assunto com ID {Id}.", id);
                 TempData["ErrorMessage"] = "Erro ao excluir o assunto. Tente novamente mais tarde.";
-                return RedirectToAction(nameof(Delete), new { id });
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Erro ao excluir o assunto. Por favor, tente novamente mais tarde."
+                };
+                return View("Error");
             }
         }
 
@@ -152,6 +179,10 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter os detalhes do assunto com ID {Id}.", id);
                 TempData["ErrorMessage"] = "Erro ao obter os detalhes do assunto. Tente novamente mais tarde.";
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Erro ao obter os detalhes do assunto. Por favor, tente novamente mais tarde."
+                };
                 return View("Error");
             }
         }

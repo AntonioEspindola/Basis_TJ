@@ -1,7 +1,7 @@
 ﻿using Livraria.Application.DTOs;
 using Livraria.Application.Interfaces;
+using Livraria.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Livraria.WebUI.Controllers
 {
@@ -22,14 +22,18 @@ namespace Livraria.WebUI.Controllers
         {
             try
             {
-                var CanalVenda = await _canalVendaService.GetCanalVendas();
-                return View(CanalVenda);
+                var canalVenda = await _canalVendaService.GetCanalVendas();
+                return View(canalVenda);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, "Erro ao obter a lista de canais de venda.");
                 TempData["ErrorMessage"] = "Erro ao obter a lista de canais de venda. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter a lista de canais de venda. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
 
@@ -53,6 +57,11 @@ namespace Livraria.WebUI.Controllers
                 {
                     _logger.LogError(ex, "Erro ao criar um novo canal de venda.");
                     TempData["ErrorMessage"] = "Erro ao criar o canal de venda. Tente novamente mais tarde.";
+                    var errorModel = new ErrorViewModel
+                    {
+                        ErrorMessage = "Ocorreu um erro inesperado ao tentar criar o canal de venda. Por favor, tente novamente mais tarde."
+                    };
+                    return View("Error", errorModel);
                 }
             }
             return View(canalVenda);
@@ -75,7 +84,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter o canal de venda para edição com ID {Id}.", id);
                 TempData["ErrorMessage"] = "Erro ao obter o canal de venda para edição. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter o canal de venda para edição. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
 
@@ -93,6 +106,11 @@ namespace Livraria.WebUI.Controllers
                 {
                     _logger.LogError(ex, "Erro ao atualizar o canal de venda com ID {Id}.", canalVendaDto.Id);
                     TempData["ErrorMessage"] = "Erro ao atualizar o canal de venda. Tente novamente mais tarde.";
+                    var errorModel = new ErrorViewModel
+                    {
+                        ErrorMessage = "Ocorreu um erro inesperado ao tentar atualizar o canal de venda. Por favor, tente novamente mais tarde."
+                    };
+                    return View("Error", errorModel);
                 }
             }
             return View(canalVendaDto);
@@ -115,7 +133,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter o canal de venda para exclusão com ID {Id}.", id);
                 TempData["ErrorMessage"] = "Erro ao obter o canal de venda para exclusão. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter o canal de venda para exclusão. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
 
@@ -132,7 +154,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao excluir o canal de venda com ID {Id}.", id);
                 TempData["ErrorMessage"] = "Erro ao excluir o canal de venda. Tente novamente mais tarde.";
-                return RedirectToAction(nameof(Delete), new { id });
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar excluir o canal de venda. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
 
@@ -153,7 +179,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter os detalhes do canal de venda com ID {Id}.", id);
                 TempData["ErrorMessage"] = "Erro ao obter os detalhes do canal de venda. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter os detalhes do canal de venda. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
     }

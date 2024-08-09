@@ -1,4 +1,6 @@
 ﻿@model Livraria.Application.DTOs.LivroDTO
+@using System.Text.Json
+
 
 <h3>Editar um Livro</h3>
 
@@ -7,6 +9,11 @@
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
+            <input type="hidden" asp-for="Id" />
+             <input type="hidden" name="livroAutores" value='@Html.Raw(JsonSerializer.Serialize(Model.LivroAutores, new JsonSerializerOptions { WriteIndented = false }))' />
+            <input type="hidden" name="livroAssuntos" value='@Html.Raw(JsonSerializer.Serialize(Model.LivroAssuntos, new JsonSerializerOptions { WriteIndented = false }))' />
+            <input type="hidden" name="livroPrecoCanalVenda" value='@Html.Raw(JsonSerializer.Serialize(Model.LivroPrecoCanalVenda, new JsonSerializerOptions { WriteIndented = false }))' />
+
             <div class="form-group">
                 <label asp-for="Titulo" class="control-label"></label>
                 <input asp-for="Titulo" class="form-control" />

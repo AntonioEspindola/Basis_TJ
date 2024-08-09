@@ -1,5 +1,5 @@
-﻿using Livraria.Application.DTOs;
-using Livraria.Application.Interfaces;
+﻿using Livraria.Application.Interfaces;
+using Livraria.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Livraria.WebUI.Controllers
@@ -8,9 +8,9 @@ namespace Livraria.WebUI.Controllers
     public class PrecosController : Controller
     {
         private readonly ILivroService _livroService;
-        private readonly ILogger<LivrosController> _logger;
+        private readonly ILogger<PrecosController> _logger;
 
-        public PrecosController(ILivroService livroService, ILogger<LivrosController> logger)
+        public PrecosController(ILivroService livroService, ILogger<PrecosController> logger)
         {
             _livroService = livroService;
             _logger = logger;
@@ -28,7 +28,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter a lista de livros.");
                 TempData["ErrorMessage"] = "Erro ao obter a lista de livros. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter a lista de livros. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
 
@@ -49,10 +53,13 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter os detalhes do livro com ID {Id}.", id);
                 TempData["ErrorMessage"] = "Erro ao obter os detalhes do livro. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter os detalhes do livro. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
-
     }
 }
 

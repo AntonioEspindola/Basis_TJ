@@ -1,7 +1,7 @@
 ﻿using Livraria.Application.DTOs;
 using Livraria.Application.Interfaces;
+using Livraria.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 
 namespace Livraria.WebUI.Controllers
 {
@@ -29,7 +29,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter a lista de preços de livros por canal de venda.");
                 TempData["ErrorMessage"] = "Erro ao obter a lista de preços de livros por canal de venda. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter a lista de preços de livros por canal de venda. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
 
@@ -53,6 +57,11 @@ namespace Livraria.WebUI.Controllers
                 {
                     _logger.LogError(ex, "Erro ao criar um novo preço de livro por canal de venda.");
                     TempData["ErrorMessage"] = "Erro ao criar o preço do livro por canal de venda. Tente novamente mais tarde.";
+                    var errorModel = new ErrorViewModel
+                    {
+                        ErrorMessage = "Ocorreu um erro inesperado ao tentar criar o preço do livro por canal de venda. Por favor, tente novamente mais tarde."
+                    };
+                    return View("Error", errorModel);
                 }
             }
             return View(livroPrecoCanalVenda);
@@ -75,7 +84,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter o preço do livro para edição com LivroId {LivroId} e CanalVendaId {CanalVendaId}.", livroId, canalVendaId);
                 TempData["ErrorMessage"] = "Erro ao obter o preço do livro para edição. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter o preço do livro para edição. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
 
@@ -93,6 +106,11 @@ namespace Livraria.WebUI.Controllers
                 {
                     _logger.LogError(ex, "Erro ao atualizar o preço do livro com LivroId {LivroId} e CanalVendaId {CanalVendaId}.", livroPrecoCanalVendaDto.Livro_Codl, livroPrecoCanalVendaDto.CanalVenda_CodCanal);
                     TempData["ErrorMessage"] = "Erro ao atualizar o preço do livro. Tente novamente mais tarde.";
+                    var errorModel = new ErrorViewModel
+                    {
+                        ErrorMessage = "Ocorreu um erro inesperado ao tentar atualizar o preço do livro. Por favor, tente novamente mais tarde."
+                    };
+                    return View("Error", errorModel);
                 }
             }
             return View(livroPrecoCanalVendaDto);
@@ -115,7 +133,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter o preço do livro para exclusão com LivroId {LivroId} e CanalVendaId {CanalVendaId}.", livroId, canalVendaId);
                 TempData["ErrorMessage"] = "Erro ao obter o preço do livro para exclusão. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter o preço do livro para exclusão. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
 
@@ -132,7 +154,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao excluir o preço do livro com LivroId {LivroId} e CanalVendaId {CanalVendaId}.", livroId, canalVendaId);
                 TempData["ErrorMessage"] = "Erro ao excluir o preço do livro. Tente novamente mais tarde.";
-                return RedirectToAction(nameof(Delete), new { livroId, canalVendaId });
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar excluir o preço do livro. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
 
@@ -153,7 +179,11 @@ namespace Livraria.WebUI.Controllers
             {
                 _logger.LogError(ex, "Erro ao obter os detalhes do preço do livro com LivroId {LivroId} e CanalVendaId {CanalVendaId}.", livroId, canalVendaId);
                 TempData["ErrorMessage"] = "Erro ao obter os detalhes do preço do livro. Tente novamente mais tarde.";
-                return View("Error");
+                var errorModel = new ErrorViewModel
+                {
+                    ErrorMessage = "Ocorreu um erro inesperado ao tentar obter os detalhes do preço do livro. Por favor, tente novamente mais tarde."
+                };
+                return View("Error", errorModel);
             }
         }
     }
