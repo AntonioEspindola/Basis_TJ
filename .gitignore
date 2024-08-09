@@ -1,0 +1,98 @@
+# Folders
+bin/
+obj/
+out/
+packages/
+.vs/
+.idea/
+.cache/
+user/
+project.lock.json
+project.fragment.lock.json
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+[Oo]bj/
+[Ll]ogs/
+*.log
+
+# NuGet
+*.nupkg
+*.snupkg
+*.nuspec
+*.dll
+*.exe
+*.pdb
+
+# Rider
+.idea/
+
+# Visual Studio
+.vs/
+*.suo
+*.user
+*.userosscache
+*.suo
+*.dbmdl
+*.bak
+*.sql
+*.cache
+*.sqlproj.user
+*.vsp
+*.vsps
+*.vsix
+*.vcxproj*
+*.dbmdl
+
+# DotCover
+*.dotCover
+
+# NCrunch
+*.ncrunch*
+*.ncrunchproject
+*.ncrunchtestlog
+
+# Publish
+publish/
+*.publishsettings
+*.pubxml
+*.pubxml.user
+
+# Files created by Visual Studio
+# ReSharper
+_ReSharper.Caches/
+
+# Others
+*.csproj.user
+*.suo
+*.user
+*.userosscache
+*.suo
+*.vscode/
+.vscode/
+*.code-workspace
+*.tmp
+*.temp
+
+# OS Generated Files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# User-specific files
+*.swp
+*.swo
+
+# Test Results
+TestResults/
+*.TestResults.xml
+
+# JetBrains Rider
+.idea/
+*.sln.iml
