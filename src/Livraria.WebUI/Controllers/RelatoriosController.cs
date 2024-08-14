@@ -1,7 +1,8 @@
-﻿using AspNetCore.Reporting;
-using Livraria.Application.Interfaces;
+﻿using Livraria.Application.Interfaces;
+using Livraria.WebUI.Helpers;
 using Livraria.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Reporting.NETCore;
 
 namespace Livraria.WebUI.Controllers
 {
@@ -10,11 +11,13 @@ namespace Livraria.WebUI.Controllers
     {
         private readonly ILivroAutorAssuntoService _livroAutorAssuntoService;
         private readonly ILogger<RelatoriosController> _logger;
+        private readonly IWebHostEnvironment _webHostEnvironment;
 
-        public RelatoriosController(ILivroAutorAssuntoService livroAutorAssuntoService, ILogger<RelatoriosController> logger)
+        public RelatoriosController(ILivroAutorAssuntoService livroAutorAssuntoService, ILogger<RelatoriosController> logger, IWebHostEnvironment webHostEnvironment)
         {
             _livroAutorAssuntoService = livroAutorAssuntoService;
             _logger = logger;
+            _webHostEnvironment = webHostEnvironment;
         }
 
         [HttpGet]
@@ -23,7 +26,11 @@ namespace Livraria.WebUI.Controllers
             try
             {
                 var relatorioData = await _livroAutorAssuntoService.GetRelatorioLivros();
-                var reportPath = Path.Combine(Directory.GetCurrentDirectory(), "Reports", "RelatorioLivroAutorAssunto.rdlc");
+                var dataTableLivros = DataTableExtensions.ConvertListToDataTable(relatorioData);
+
+                string wwwRooFolder = _webHostEnvironment.WebRootPath;
+                var reportPath = Path.Combine(wwwRooFolder, "Reports", "RelLivroAutorAssunto.rdlc");
+                //var reportPath = Path.Combine(Directory.GetCurrentDirectory(), "Reports", "RelLivroAutorAssunto.rdlc");
 
                 if (!System.IO.File.Exists(reportPath))
                 {
@@ -32,12 +39,16 @@ namespace Livraria.WebUI.Controllers
                     return View("Error");
                 }
 
-                LocalReport localReport = new LocalReport(reportPath);
-                localReport.AddDataSource("LivroAutorAssuntoDataSet", relatorioData);
+                var localReport = new LocalReport
+                {
+                    ReportPath = reportPath
+                };
 
-                var result = localReport.Execute(RenderType.Pdf, 1, null, string.Empty);
+                localReport.DataSources.Add(new ReportDataSource("LivroAutorAssuntoDataSet", dataTableLivros));
 
-                return File(result.MainStream, "application/pdf", "RelatorioLivroAutorAssunto.pdf");
+                var result = localReport.Render("PDF");
+
+                return File(result, "application/pdf", "RelatorioLivroAutorAssunto.pdf");
             }
             catch (Exception ex)
             {

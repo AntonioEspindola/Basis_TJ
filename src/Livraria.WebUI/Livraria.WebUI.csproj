@@ -7,11 +7,35 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="AspNetCore.Reporting" Version="2.1.0" />
+    <Content Remove="wwwroot\Reports\RelLivroAutorAssunto.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="ReportViewerCore.NETCore" Version="15.1.22" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\Livraria.IInfra.IoC\Livraria.Infra.IoC.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\Reports\RelLivroAutorAssunto.rdlc" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Datasets\LivroAutorAssuntoDs.Designer.cs">
+      <DependentUpon>LivroAutorAssuntoDs.xsd</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Datasets\LivroAutorAssuntoDs.xsd">
+      <SubType>Designer</SubType>
+      <LastGenOutput>LivroAutorAssuntoDs.Designer.cs</LastGenOutput>
+      <Generator>MSDataSetGenerator</Generator>
+    </None>
   </ItemGroup>
 
 </Project>

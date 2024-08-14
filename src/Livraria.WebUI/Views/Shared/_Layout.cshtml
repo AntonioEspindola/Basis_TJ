@@ -60,9 +60,7 @@
                          <li class="nav-item">
                             <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Relatorio" ? "active" : "")" asp-area="" asp-controller="Relatorios" asp-action="Index">Relatorio</a>
                         </li>
-                         <li class="nav-item">
-                            <a class="nav-link @(ViewContext.RouteData.Values["controller"].ToString() == "Home" && ViewContext.RouteData.Values["action"].ToString() == "Privacy" ? "active" : "")" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li>
+                    
                     </ul>
                     <ul class="navbar-nav ms-auto">
                         @await Html.PartialAsync("_LoginPartial")

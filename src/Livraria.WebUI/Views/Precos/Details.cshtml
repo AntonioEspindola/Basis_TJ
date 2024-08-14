@@ -1,5 +1,5 @@
 ﻿@model Livraria.Application.DTOs.LivroDTO
-
+@using System.Linq
 @{
     ViewData["Title"] = "Detalhes do Livro";
 }
@@ -10,22 +10,33 @@
 <hr />
 <div>
     <h3>Preços do Livro: @Model.Titulo</h3>
-    <table class="table table-striped">
-        <thead>
-            <tr>
-                <th>Código do Canal</th>
-                <th>Preço de Venda</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var preco in Model.LivroPrecoCanalVenda)
-            {
+
+    @if (Model.LivroPrecoCanalVenda != null && Model.LivroPrecoCanalVenda.Any())
+    {
+        <table class="table table-striped">
+            <thead>
                 <tr>
-                    <td>@preco.CanalVenda_CodCanal</td>
-                    <td>@preco.PrecoVenda.ToString("C")</td>
+                    <th>Descrição do Canal</th>
+                    <th>Preço de Venda</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var preco in Model.LivroPrecoCanalVenda)
+                {
+                    <tr>
+                        <td>@preco.CanalVenda?.NomeCanal</td>
+                        <td>@preco.PrecoVenda.ToString("C")</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div id="no-price-message" class="alert alert-warning alert-dismissible fade show" role="alert">
+            <strong>Atenção!</strong> O Livro @Model.Titulo não possui preço de venda cadastrado.
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
 </div>
 <a asp-action="Index" class="btn btn-secondary">Voltar</a>

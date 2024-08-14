@@ -17,7 +17,7 @@ public sealed class Product : Entity
 
     public Product(int id, string name, string description, decimal price, int stock, string image)
     {
-        DomainExceptionValidation.When(id < 0, "Invalid Id value.");
+        DomainExceptionValidation.When(id < 0, "Valor de Id inválido.");
         Id = id;
         ValidateDomain(name, description, price, stock, image);
     }
@@ -31,30 +31,29 @@ public sealed class Product : Entity
     private void ValidateDomain(string name, string description, decimal price, int stock, string image)
     {
         DomainExceptionValidation.When(string.IsNullOrEmpty(name),
-            "Invalid name. Name is required");
+            "Nome inválido. O nome é obrigatório.");
 
         DomainExceptionValidation.When(name.Length < 3,
-            "Invalid name, too short, minimum 3 characters");
+            "Nome inválido, muito curto. Mínimo de 3 caracteres.");
 
         DomainExceptionValidation.When(string.IsNullOrEmpty(description),
-            "Invalid description. Description is required");
+            "Descrição inválida. A descrição é obrigatória.");
 
         DomainExceptionValidation.When(description.Length < 5,
-            "Invalid description, too short, minimum 5 characters");
+            "Descrição inválida, muito curta. Mínimo de 5 caracteres.");
 
-        DomainExceptionValidation.When(price < 0, "Invalid price value");
+        DomainExceptionValidation.When(price < 0, "Valor de preço inválido.");
 
-        DomainExceptionValidation.When(stock < 0, "Invalid stock value");
+        DomainExceptionValidation.When(stock < 0, "Valor de estoque inválido.");
 
         DomainExceptionValidation.When(image?.Length > 250,
-            "Invalid image name, too long, maximum 250 characters");
+            "Nome da imagem inválido, muito longo. Máximo de 250 caracteres.");
 
         Name = name;
         Description = description;
         Price = price;
         Stock = stock;
         Image = image;
-
     }
     public int CategoryId { get; set; }
     public Category Category { get; set; }
