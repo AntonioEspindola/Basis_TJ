@@ -37,6 +37,26 @@ namespace Livraria.Infra.Data.Repositories
             }
         }
 
+        public async Task AddRangePrecoCanalVendaAsync(IEnumerable<LivroPrecoCanalVenda> livroPrecoCanalVenda)
+        {
+            try
+            {
+                _context.AddRange(livroPrecoCanalVenda);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Erro ao tentar salvar preços e canais de venda no banco de dados.");
+                throw new Exception("Ocorreu um erro ao tentar salvar os preços e canais de venda. Por favor, tente novamente mais tarde.", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro inesperado ao tentar salvar preços e canais de venda.");
+                throw new Exception("Ocorreu um erro inesperado ao tentar salvar os preços e canais de venda. Por favor, tente novamente mais tarde.", ex);
+            }
+        }
+
+
         public async Task<LivroPrecoCanalVenda> GetByIdAsync(int livroId, int canalVendaId)
         {
             try

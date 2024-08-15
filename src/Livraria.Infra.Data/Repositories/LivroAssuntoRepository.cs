@@ -103,5 +103,24 @@ namespace Livraria.Infra.Data.Repositories
                 throw new Exception("Ocorreu um erro inesperado ao tentar atualizar o LivroAssunto. Por favor, tente novamente mais tarde.", ex);
             }
         }
+
+        public async Task AddRangeAsync(IEnumerable<LivroAssunto> livroAssunto)
+        {
+            try
+            {
+                _context.AddRange(livroAssunto);
+                await _context.SaveChangesAsync();
+            }
+            catch (DbUpdateException ex)
+            {
+                _logger.LogError(ex, "Erro ao tentar inserir Livro x Assunto no banco de dados.");
+                throw new Exception("Ocorreu um erro ao tentar inserir Livro x Autor no banco de dados. Por favor, tente novamente mais tarde.", ex);
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex, "Erro inesperado ao tentar inserir Livro x Assunto no banco de dados.");
+                throw new Exception("Ocorreu um erro inesperado ao tentar inserir Livro x Assunto no banco de dados. Por favor, tente novamente mais tarde.", ex);
+            }
+        }
     }
 }

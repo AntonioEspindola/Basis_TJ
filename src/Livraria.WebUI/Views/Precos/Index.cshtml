@@ -4,23 +4,24 @@
     ViewData["Title"] = "Consultar Livro";
 }
 
-<div>
-    <h2>@ViewData["Title"]</h2>
-</div>
-<hr />
+<div class="container mt-4">
+    <h2 class="mb-4">@ViewData["Title"]</h2>
+    <hr />
 
-<form asp-action="Details" method="get">
-    <div class="form-group">
-        <label for="livroId">Selecione um Livro:</label>
-        <select id="livroId" name="id" class="form-control" required>
-            <option value="">-- Selecione um Livro --</option>
-            @foreach (var livro in Model)
-            {
-                <option value="@livro.Id">@livro.Titulo</option>
-            }
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Consultar</button>
-</form>
+    <form asp-action="Details" method="get">
+        <div class="form-group mb-3">
+            <label for="livroId" class="font-weight-bold">Selecione um Livro:</label>
+            <select id="livroId" name="id" class="form-control" required>
+                <option value="">-- Selecione um Livro --</option>
+                @foreach (var livro in Model)
+                {
+                    <option value="@livro.Id">@livro.Titulo</option>
+                }
+            </select>
+        </div>
+        <button type="submit" class="btn btn-primary">Consultar</button>
+    </form>
+</div>
+
 
 

@@ -1,10 +1,11 @@
-﻿using System.ComponentModel;
+﻿using Livraria.Application.DTOs;
+using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json.Serialization;
 
-namespace Livraria.Application.DTOs
+namespace Livraria.WebUI.ViewModels
 {
-    public class LivroDTO
+    public class LivroEditViewModel
     {
         public int Id { get; set; }
 
@@ -29,9 +30,11 @@ namespace Livraria.Application.DTOs
         [MaxLength(4)]
         [DisplayName("Ano publicação")]
         public string AnoPublicacao { get; set; }
+        [JsonIgnore]
         public ICollection<LivroAutorDTO>? LivroAutores { get; set; }
+        [JsonIgnore]
         public ICollection<LivroAssuntoDTO>? LivroAssuntos { get; set; }
+        [JsonIgnore]
         public ICollection<LivroPrecoCanalVendaDTO> LivroPrecoCanalVenda { get; set; }
     }
 }
-

@@ -2,7 +2,9 @@
 using Livraria.Application.Interfaces;
 using Livraria.WebUI.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Text.Json;
+using Livraria.WebUI.ViewModels;
 
 namespace Livraria.WebUI.Controllers
 {
@@ -10,11 +12,21 @@ namespace Livraria.WebUI.Controllers
     public class LivrosController : Controller
     {
         private readonly ILivroService _livroService;
+        private readonly IAutorService _autorService;
+        private readonly ICanalVendaService _canalVendaService;
+        private readonly IAssuntoService _assuntoService;
         private readonly ILogger<LivrosController> _logger;
 
-        public LivrosController(ILivroService livroService, ILogger<LivrosController> logger)
+        public LivrosController(ILivroService livroService, 
+                                IAutorService autorService,
+                                ICanalVendaService canalVendaService,
+                                IAssuntoService assuntoService,
+                                ILogger<LivrosController> logger)
         {
             _livroService = livroService;
+            _autorService = autorService;
+            _canalVendaService = canalVendaService;
+            _assuntoService = assuntoService;
             _logger = logger;
         }
 
@@ -23,6 +35,7 @@ namespace Livraria.WebUI.Controllers
         {
             try
             {
+               
                 var livros = await _livroService.GetLivros();
                 return View(livros);
             }
@@ -40,19 +53,58 @@ namespace Livraria.WebUI.Controllers
 
 
         [HttpGet]
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var lstAutor = await _autorService.GetAutores();
+            var lstCanalVenda = await _canalVendaService.GetCanalVendas();
+            var lstAssunto = await _assuntoService.GetAssuntos();
+
+            // Passar listas diretamente para ViewBag
+            ViewBag.Autores = lstAutor;
+            ViewBag.CanaisVenda = lstCanalVenda;
+            ViewBag.Assuntos = lstAssunto;
+            
+            List<SelectListItem> exemploList = new List<SelectListItem>();
+            foreach (var item in lstAssunto)
+            {
+                exemploList.Add(new SelectListItem { Text = item.Descricao, Value = item.Id.ToString() });
+            }
+            ViewBag.ExemploList = exemploList;
+
             return View();
         }
 
+
         [HttpPost]
-        public async Task<IActionResult> Create(LivroDTO livro)
+        public async Task<IActionResult> Create(LivroDTO livroDto, string LivroAssuntosJson, string LivroAutoresJson, string LivroPrecoCanalVendaJson)
         {
             if (ModelState.IsValid)
             {
                 try
                 {
-                    await _livroService.Add(livro);
+
+                    var livroAssuntos = JsonSerializer.Deserialize<List<String>>(LivroAssuntosJson);
+                    var livroAutores = JsonSerializer.Deserialize<List<String>>(LivroAutoresJson);
+                    var livroPrecoCanalVenda = JsonSerializer.Deserialize<List<LivroPrecoCanalVendaDTO>>(LivroPrecoCanalVendaJson);
+
+
+                    List<LivroAssuntoDTO> lstlivroAssuntoDTO = new();
+                    foreach (var item in livroAssuntos)
+                    {
+                        lstlivroAssuntoDTO.Add(new LivroAssuntoDTO { Assunto_CodAs = Int32.Parse(item) });
+                    }
+
+                    List<LivroAutorDTO> lstLivroAutoresDTO = new();
+                    foreach (var item in livroAutores)
+                    {
+                        lstLivroAutoresDTO.Add(new LivroAutorDTO { Autor_CodAu = Int32.Parse(item) });
+                    }
+
+                    //livroDto.LivroAssuntos = lstlivroAssuntoDTO;
+                    //livroDto.LivroAutores = lstLivroAutoresDTO;
+                    //livroDto.LivroPrecoCanalVenda = livroPrecoCanalVenda;
+
+                    await _livroService.Add(livroDto, livroPrecoCanalVenda, lstlivroAssuntoDTO, lstLivroAutoresDTO);
                     return RedirectToAction(nameof(Index));
                 }
                 catch (Exception ex)
@@ -66,8 +118,19 @@ namespace Livraria.WebUI.Controllers
                     return View("Error", errorModel);
                 }
             }
-            return View(livro);
+
+            // Recarregar os dados dos combos em caso de erro
+            var lstAutor = await _autorService.GetAutores();
+            var lstCanalVenda = await _canalVendaService.GetCanalVendas();
+            var lstAssunto = await _assuntoService.GetAssuntos();
+
+            ViewBag.Autores = lstAutor;
+            ViewBag.CanaisVenda = lstCanalVenda;
+            ViewBag.Assuntos = lstAssunto;
+
+            return View(livroDto);
         }
+
 
         [HttpGet("Alterar")]
         public async Task<IActionResult> Edit(int? id)
@@ -80,7 +143,18 @@ namespace Livraria.WebUI.Controllers
                 var livroDto = await _livroService.GetById(id.Value);
                 if (livroDto == null)
                     return NotFound();
-                return View(livroDto);
+
+                LivroEditViewModel livroEditViewModel = new LivroEditViewModel
+                {
+                    AnoPublicacao = livroDto.AnoPublicacao,
+                    Edicao = livroDto.Edicao,
+                    Editora = livroDto.Editora,
+                    Titulo = livroDto.Titulo,
+                    Id = livroDto.Id
+                };
+                
+
+                return View(livroEditViewModel);
             }
             catch (Exception ex)
             {
